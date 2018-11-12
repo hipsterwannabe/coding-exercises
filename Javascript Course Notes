@@ -1,0 +1,240 @@
+Javascript Course Notes
+
+Variables: var firstName = 'Greg';
+Five data types: number, string, boolean, undefined, null
+
+	Number: always floating point, even if whole numbers
+
+Dynamic typing: no need to declare data types
+
+//Variable mutation and type coercion
+converting numbers to strings when concatonated to another string
+variable mutation: changing from one data type to another
+
+//Basic operators
+
+//Operator precedence
+Operator precedence table in JS docs
+
+//If/else statements
+e.g. if (civilStatus === 'married') {
+	console.log(firstName + 'is married');
+} else {
+	console.log();
+}
+
+Also:
+if (boolean variable) {
+	
+} else {
+	
+}
+
+Boolean logic
+AND (&&)
+OR (||)
+NOT (!)
+
+//Ternary operator, switch statements
+
+condition ? expression1 : expression2
+If condition is true, expression1 returned
+If false, expression2 returned
+
+Switch
+
+switch (variable){
+	case _______:
+		condition;
+		break;
+	case _______:
+		condition;
+		break;
+	default:
+		condition;
+}
+
+Can put two cases for one condition
+
+//Truthy and Falsy values
+Falsy values: undefined, null, 0, '', Nan
+- converted to FALSE when evaluated in if/else
+Truthy values: all values that are not falsy
+- converted to TRUE when evaluated in if/else
+
+Comparison types
+== compares values
+=== compares value AND type
+
+//Functions
+//Function declaration
+function functionName(arguments){
+	return something; //doesn't always have to return something (e.g. console.log)
+}
+
+functionName(arguments);
+
+Calling functions within functions
+- can call, so long as argument is passed into outer function call
+
+DRY code: Don't Repeat Yourself
+
+//Function Statements and Expressions
+//Function expression
+var variableName = function(arguments){
+	
+}
+
+'return' acts as a break, finishes a function
+
+Javascript expression: always produce a value
+e.g. 2 + 3 (returns 5)
+Javascript statements: don't produce an immediate value
+
+Function Statements don't return anything
+Function expressions produce an immediate result
+
+//Arrays
+
+var names = ['John', 'Mark', 'Jane'];
+var years = new Array(1990, 1969, 1948); //not usually used
+names.length // returns number of elements in array
+names[1] = 'Ben'; //replaces 2nd element
+console.log(names[0]); //arrays are zero-index
+
+Array methods
+array.push- adds element to end of array
+array.pop- removes last element of array
+array.shift- removes from the front
+array.unshift- adds to the front
+array.indexOf()- returns number index of item in array
+//returns '-1' if item is not in array
+
+//Objects and properties
+key-value pairs: each value has a name, the key
+
+//object literal (container that can be filled with properties)
+var John = {
+	firstName : 'John',   //firstName is key(property), 'John' is value
+	lastName : 'Smith',
+	birthYear : 1990,
+	family:['Jane' , 'Mark', 'Bob', 'Emily'],
+	job : 'teacher',
+	isMarried : false
+}
+
+//retrieving elements
+John.firstName
+John['lastName']
+
+//mutate objects
+
+John.job = 'designer';
+John['isMarried'] = true;
+
+//creating a new object
+
+var Jane = new Object();
+Jane.name = 'Jane';
+Jane.birthYear = 1969;
+Jane[lastName] = 'Smith';
+* Only contains properties that are explicitly defined *
+//Objects and methods
+Only objects have methods
+"this" keyword
+var John = {
+	firstName : 'John',   //firstName is key(property), 'John' is value
+	lastName : 'Smith',
+	birthYear : 1990,
+	family:['Jane' , 'Mark', 'Bob', 'Emily'],
+	job : 'teacher',
+	isMarried : false,
+	calcAge : function(){
+		this.age = 2018 - this.birthYear;
+		//return 2018 - this.birthYear;
+	}
+}
+* Storing result to 'John' object *
+var age = John.calcAge();
+John.age = John.calcAge();
+** Function property/methods must be calculated outside of object definition **
+
+//Loops and iteration
+
+for (var i = 1; i <= 10; i++){
+	console.log(i);
+}
+
+looping through array elements
+
+var john = ['John', 'Smith', 1990, 'designer', false];
+
+for (var i = 0; i < john.length, i++) {
+	console.log(john[i]);
+}
+
+**While loop**
+
+while (i < john.length){
+	console.log(john[1]; //perform action
+	i++;)				 //increment
+}
+
+**Breaks and continues
+//continue: ends current iteration and continues looping
+for (var i = 0; i < john.length, i++) {
+	if (typeof john[i]!== string) continue;
+	console.log(john[i]);
+}
+//break: ends current iteration and breaks out of loop
+for (var i = 0; i < john.length, i++) {
+	if (typeof john[i]!== string) break;
+	console.log(john[i]);
+}
+
+Coding Challenge #5
+Compound operators (this.bills.length): read from left to right
+Creating variable in order to avoid repeating code (this.bill[i])
+Having trouble with function/object scope
+
+-------
+Javascript Versions
+ES5- released in 2009, fully supported in all browsers
+ES6- released in 2015 (changed to annual release cycle)
+ES 6/7/8- supported in modern browsers, but not ALL browsers
+	- can use most features with transpiling/polyfiling
+
+------
+'This' Keyword
+
+Variable that each execution context gets, stored in execution context object
+
+Regular function call: points at global object (window object)
+Method call: points to object calling the method
+
+"this" is not assigned a value until a function where it is defined is actually called
+----
+DOM Manipulation
+Document Object Model
+- structured representation of an HTML document
+- connects webpages to scripts
+- for each HTML box, there is an object in the DOM that can be accessed and interacted with
+
+------
+HTML/CSS Crash Course
+HTML tags for different elements
+Attributes for elements (id, class, etc)
+id name must be unique, class name can be used multiple times
+
+HTML doc: header and body
+Header content: links to external files (scripts, fonts, icons, etc)
+
+CSS file: rules for styling webpage
+Class names: used to connnect CSS to HTML
+".class-name"- class selector
+"body"- type selector
+"*"- universal selector
+------
+Project Setup
+-----
+First DOM Access and Manipulation
